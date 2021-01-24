@@ -1,0 +1,40 @@
+{% extends 'Portfolio/base.html' %}
+
+{% block content %}
+
+
+
+	{% load static %}
+	<br>
+	<div class="page-header">
+		<h2>Hey, such a beautiful world, isn't it? Let's  work together to make it better.</h2>
+	</div>
+
+	<div class="home-image">
+
+		<img src= "{% static 'Portfolio/HomeImage/pexels-quang-nguyen-vinh-2132180_mountain.jpg' %}" width="1080" height="480" >
+		<!-- <video autoplay= "autoplay"  loop = "loop"  width="1080" height="450">
+			<source src="{% static 'Portfolio/HomeImage/Foggy_river_drone.mp4' %}" type="video/mp4">
+		  
+		</video> -->
+	</div>
+	
+	<br>
+
+	<div class="content container">
+		<div class="row">
+			<h1><a id="projectsundertaken">Projects undertaken</a></h1>
+			{% for project in Projects %}
+
+			<h2>{{ project.id }}. {{ project.title }}</h2>
+			</br>
+			<p>{{ project.description }}</p>
+			<a href = "{{ project.url }}"> <img src="{{ project.photo.url }}" width="250" height="250"> </a>
+
+		{% endfor %}
+		</div>
+	</div>
+
+{% endblock %}
+
+
